@@ -1,21 +1,15 @@
-from Flight_Dictionary import flights
 from Search_Flight import search_flight
-from Book_Flight import book_seat
+from Book_Seat import book_seat
 
-source = input("Enter Source: ")
-destination = input("Enter Destination: ")
+def main():
+    source = input("Enter Source Airport: ")
+    destination = input("Enter Destination Airport: ")
 
-flight_id, details = search_flight(source, destination, flights)
+    flight_id, details = search_flight(source, destination)
 
-if flight_id:
-    print(details)
-
-    seats = int(input("Enter seats: "))
-
-    if book_seat(details, seats):
-        print("Booking Confirmed")
-        print("Remaining Seats:", details["seats"])
+    if flight_id:
+        book_seat(flight_id, details)
     else:
-        print("Seats not available")
-else:
-    print("Flight not found")
+        print("No flights available for this route")
+
+main()
