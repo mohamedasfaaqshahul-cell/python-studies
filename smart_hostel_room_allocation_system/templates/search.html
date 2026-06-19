@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Hostel Room Allocation</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        input, select { display: block; margin: 8px 0; padding: 8px; width: 250px; }
+        button { padding: 10px 20px; background: blue; color: white; border: none; cursor: pointer; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <h2>Student Hostel Registration</h2>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form action="/search" method="POST">
+
+        <label>Register Number:</label>
+        <input type="text" name="regno">
+
+        <label>Student Name:</label>
+        <input type="text" name="name">
+
+        <label>Gender:</label>
+        <select name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label>Year:</label>
+        <input type="number" name="year" min="1" max="4">
+
+        <button type="submit">Allocate Room</button>
+
+    </form>
+
+</body>
+</html>
