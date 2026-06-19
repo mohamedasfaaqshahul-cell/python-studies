@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Details</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        button { padding: 10px 20px; background: green; color: white; border: none; cursor: pointer; }
+        a { display: inline-block; margin-top: 10px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <h2>Room Allocation Details</h2>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <p><b>Register Number :</b> {{ regno }}</p>
+    <p><b>Student Name :</b> {{ name }}</p>
+    <p><b>Gender :</b> {{ gender }}</p>
+    <p><b>Year :</b> {{ year }}</p>
+
+    <p><b>Hostel Block :</b> {{ block }}</p>
+    <p><b>Room Number :</b> {{ room }}</p>
+
+    <form action="/confirm" method="POST">
+
+        <input type="hidden" name="regno" value="{{ regno }}">
+        <input type="hidden" name="name" value="{{ name }}">
+        <input type="hidden" name="gender" value="{{ gender }}">
+        <input type="hidden" name="year" value="{{ year }}">
+        <input type="hidden" name="block" value="{{ block }}">
+        <input type="hidden" name="room" value="{{ room }}">
+
+        <button type="submit">Confirm Allocation</button>
+
+    </form>
+
+    <a href="/">Back</a>
+
+</body>
+</html>
